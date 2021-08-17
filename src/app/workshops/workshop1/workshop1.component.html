@@ -70,27 +70,25 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">กรุณากรอกข้อมูลผู้ใช้งาน</h5>
-                <button type="button" class="close" data-dismiss="modal"
-                    aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body " style="padding: 30px 30px;">
-                <form [formGroup]="userForm">
+                <form [formGroup]="userForm" (ngSubmit)="userFormSubmit()">
                     <div class="">
-                        <input type="number" id="counter" disabled hidden>
                         <div class="row r">
                             <div class="col-3 col-md-1">
                                 <label class="control-label">ชื่อ</label>
                             </div>
                             <div class="col-8 col-md-4">
-                                <input class="form-control " id="fname" style="width: 100%">
+                                <input class="form-control " id="fname" style="width: 100%"  formControlName="fname">
                             </div>
                             <div class="col-3 col-md-2">
                                 <label class="control-label">นามสกุล</label>
                             </div>
                             <div class="col-8 col-md-4">
-                                <input class="form-control " id="lname" style="width: 100%">
+                                <input class="form-control " id="lname" style="width: 100%" formControlName="lname">
                             </div>
                         </div>
                         <div class="row r">
@@ -98,15 +96,19 @@
                                 <label class="control-label">วันเกิด</label>
                             </div>
                             <div class="col-8 col-md-4">
-                                <input type="text" id="birth" class="form-control ctrl-date"
-                                    onchange="ageCount()" style="width: 100%">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Choose a date</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="birthDate"  autocomplete="off">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                  </mat-form-field>
+                                  
                             </div>
                             <div class="col-3 col-md-2">
                                 <label class="control-label">อายุ</label>
                             </div>
                             <div class="col-8 col-md-4">
-                                <input type="number" class="form-control " id="age" readonly
-                                    style="width: 100%">
+                                <input type="number" class="form-control " id="age" readonly style="width: 100%">
 
                             </div>
                         </div>
@@ -115,8 +117,7 @@
                                 <label class="control-label">เพศ</label>
                             </div>
                             <div class="col-4">
-                                <select id="sex" name="sex" class="form-control "
-                                    style="width: 100%">
+                                <select id="sex" name="sex" class="form-control " style="width: 100%">
                                     <option value="เลือกเพศ" disabled selected hidden>กรุณาเลือกเพศ</option>
                                     <option value="ชาย">ชาย</option>
                                     <option value="หญิง">หญิง</option>
@@ -126,8 +127,7 @@
                         </div>
                         <div>
                             <div style="text-align: center; margin-top: 20px;">
-                                <button class="btn btn-primary" data-dismiss="modal"
-                                    onclick="addRow()">บันทึก</button>
+                                <button class="btn btn-primary" type="submit" >บันทึก</button>
                                 <button class="btn btn-danger " data-dismiss="modal">ยกเลิก</button>
                             </div>
                         </div>

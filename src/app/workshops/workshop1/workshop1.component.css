@@ -3,3 +3,6 @@
     margin-top: 10px;
     text-align: right;
 }
+::ng-deep .cdk-overlay-container{
+    z-index: 1200 !important;
+}

@@ -9,7 +9,12 @@ import { WorkshopsComponent } from './workshops/workshops.component';
 import { Workshop1Component } from './workshops/workshop1/workshop1.component';
 import { Workshop2Component } from './workshops/workshop2/workshop2.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,MatFormFieldModule,MatInputModule,
+    MatDatepickerModule,MatNativeDateModule,MatMomentDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
